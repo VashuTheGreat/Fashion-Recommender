@@ -9,3 +9,6 @@ styles.csv
 features_extractor.keras
 filenames.pkl
 neighbors_model.pkl
+__pycache__
+.idea
+.gitattributes
