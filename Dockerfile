@@ -1,15 +1,10 @@
-# Use official Python image
-FROM python:3.10
+FROM python:3.10-slim
 
 WORKDIR /app
 
-# Copy requirements and install dependencies
-COPY requirements.txt .
-RUN pip install --no-cache-dir -r requirements.txt
+COPY pyproject.toml .
+RUN pip install --no-cache-dir uv && uv pip install --system -e .
 
-# Copy rest of your code (without ignored files/folders)
 COPY . .
 
-# Default command to run your Python app
-# (change script.py to your main Python file)
-CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]
+CMD ["uvicorn", "api.main:app", "--host", "0.0.0.0", "--port", "8000"]

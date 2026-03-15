@@ -1,0 +1,17 @@
+[ 2026-03-15 15:25:54,157 ] root - INFO - Logger initialized. Logging to C:\Users\vansh\Projects\Fashion-Recommender\logs\03_15_2026_15_25_54.log
+[ 2026-03-15 15:25:54,158 ] root - INFO - Logger initialized. Logging to C:\Users\vansh\Projects\Fashion-Recommender\logs\03_15_2026_15_25_54.log
+[ 2026-03-15 15:25:54,159 ] root - INFO - Logger initialized. Logging to C:\Users\vansh\Projects\Fashion-Recommender\logs\03_15_2026_15_25_54.log
+[ 2026-03-15 15:25:54,169 ] asyncio - DEBUG - Using selector: SelectSelector
+[ 2026-03-15 15:25:54,169 ] asyncio - DEBUG - Using selector: SelectSelector
+[ 2026-03-15 15:25:54,169 ] asyncio - DEBUG - Using selector: SelectSelector
+[ 2026-03-15 15:26:00,509 ] api.main - INFO - Fashion Recommender API starting up — loading models
+[ 2026-03-15 15:26:00,509 ] fashion_recommender.components.feature_extractor - INFO - No saved model found — building from ImageNet weights
+[ 2026-03-15 15:26:00,514 ] api.main - INFO - Fashion Recommender API starting up — loading models
+[ 2026-03-15 15:26:00,515 ] fashion_recommender.components.feature_extractor - INFO - No saved model found — building from ImageNet weights
+[ 2026-03-15 15:26:00,521 ] api.main - INFO - Fashion Recommender API starting up — loading models
+[ 2026-03-15 15:26:00,521 ] fashion_recommender.components.feature_extractor - INFO - No saved model found — building from ImageNet weights
+[ 2026-03-15 15:26:01,116 ] fashion_recommender.components.feature_extractor - INFO - Feature extractor ready on cpu
+[ 2026-03-15 15:26:01,116 ] fashion_recommender.components.feature_extractor - INFO - Feature extractor ready on cpu
+[ 2026-03-15 15:26:01,117 ] fashion_recommender.components.recommender - INFO - Loading KNN neighbors model and metadata
+[ 2026-03-15 15:26:01,117 ] fashion_recommender.components.recommender - INFO - Loading KNN neighbors model and metadata
+[ 2026-03-15 15:26:01,117 ] fashion_recommender.components.recommender - INFO - Loading KNN neighbors model and metadata

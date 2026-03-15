@@ -1,0 +1,2 @@
+from fashion_recommender.components.feature_extractor import FeatureExtractor
+from fashion_recommender.components.recommender import Recommender

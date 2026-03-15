@@ -1,0 +1,39 @@
+[ 2026-03-15 15:30:28,944 ] root - INFO - Logger initialized. Logging to C:\Users\vansh\Projects\Fashion-Recommender\logs\03_15_2026_15_30_28.log
+[ 2026-03-15 15:30:28,948 ] root - INFO - Logger initialized. Logging to C:\Users\vansh\Projects\Fashion-Recommender\logs\03_15_2026_15_30_28.log
+[ 2026-03-15 15:30:28,952 ] asyncio - DEBUG - Using selector: SelectSelector
+[ 2026-03-15 15:30:28,955 ] asyncio - DEBUG - Using selector: SelectSelector
+[ 2026-03-15 15:30:34,691 ] api.main - INFO - Fashion Recommender API starting up — loading models
+[ 2026-03-15 15:30:34,691 ] fashion_recommender.components.feature_extractor - INFO - Loading saved feature extractor from C:\Users\vansh\Projects\Fashion-Recommender\artifacts\features_extractor.pt
+[ 2026-03-15 15:30:34,692 ] api.main - INFO - Fashion Recommender API starting up — loading models
+[ 2026-03-15 15:30:34,692 ] fashion_recommender.components.feature_extractor - INFO - Loading saved feature extractor from C:\Users\vansh\Projects\Fashion-Recommender\artifacts\features_extractor.pt
+[ 2026-03-15 15:30:35,453 ] fashion_recommender.components.feature_extractor - INFO - Feature extractor ready on cpu
+[ 2026-03-15 15:30:35,454 ] fashion_recommender.components.recommender - INFO - Loading KNN neighbors model and metadata
+[ 2026-03-15 15:30:35,454 ] fashion_recommender.components.feature_extractor - INFO - Feature extractor ready on cpu
+[ 2026-03-15 15:30:35,454 ] fashion_recommender.components.recommender - INFO - Loading KNN neighbors model and metadata
+[ 2026-03-15 15:30:35,589 ] fashion_recommender.components.recommender - INFO - Loaded 20 filenames and CSV with 44446 rows
+[ 2026-03-15 15:30:35,590 ] api.main - INFO - Models loaded. API ready.
+[ 2026-03-15 15:30:35,592 ] fashion_recommender.components.recommender - INFO - Loaded 20 filenames and CSV with 44446 rows
+[ 2026-03-15 15:30:35,592 ] api.main - INFO - Models loaded. API ready.
+[ 2026-03-15 15:37:33,327 ] python_multipart.multipart - DEBUG - Calling on_part_begin with no data
+[ 2026-03-15 15:37:33,329 ] python_multipart.multipart - DEBUG - Calling on_header_field with data[42:61]
+[ 2026-03-15 15:37:33,330 ] python_multipart.multipart - DEBUG - Calling on_header_value with data[63:106]
+[ 2026-03-15 15:37:33,330 ] python_multipart.multipart - DEBUG - Calling on_header_end with no data
+[ 2026-03-15 15:37:33,330 ] python_multipart.multipart - DEBUG - Calling on_header_field with data[108:120]
+[ 2026-03-15 15:37:33,330 ] python_multipart.multipart - DEBUG - Calling on_header_value with data[122:132]
+[ 2026-03-15 15:37:33,330 ] python_multipart.multipart - DEBUG - Calling on_header_end with no data
+[ 2026-03-15 15:37:33,331 ] python_multipart.multipart - DEBUG - Calling on_headers_finished with no data
+[ 2026-03-15 15:37:33,332 ] python_multipart.multipart - DEBUG - Calling on_part_data with data[136:29952]
+[ 2026-03-15 15:37:33,333 ] python_multipart.multipart - DEBUG - Calling on_part_end with no data
+[ 2026-03-15 15:37:33,333 ] python_multipart.multipart - DEBUG - Calling on_end with no data
+[ 2026-03-15 15:37:33,473 ] api.routers.predict - INFO - Received upload: test.jpg (image/jpeg)
+[ 2026-03-15 15:37:33,478 ] fashion_recommender.utils - INFO - Required artifact directories verified
+[ 2026-03-15 15:37:33,552 ] fashion_recommender.pipeline.prediction_pipeline - INFO - Prediction pipeline started for e754163f2c1b4afba70c54662cb19e46.jpg
+[ 2026-03-15 15:37:34,298 ] fashion_recommender.components.feature_extractor - DEBUG - Features extracted for e754163f2c1b4afba70c54662cb19e46.jpg
+[ 2026-03-15 15:37:39,350 ] fashion_recommender.components.recommender - WARNING - Style JSON not found: C:\Users\vansh\Projects\Fashion-Recommender\artifacts\styles\53759.json
+[ 2026-03-15 15:37:39,356 ] fashion_recommender.components.recommender - WARNING - Style JSON not found: C:\Users\vansh\Projects\Fashion-Recommender\artifacts\styles\15970.json
+[ 2026-03-15 15:37:39,361 ] fashion_recommender.components.recommender - WARNING - Style JSON not found: C:\Users\vansh\Projects\Fashion-Recommender\artifacts\styles\30805.json
+[ 2026-03-15 15:37:39,369 ] fashion_recommender.components.recommender - WARNING - Style JSON not found: C:\Users\vansh\Projects\Fashion-Recommender\artifacts\styles\26960.json
+[ 2026-03-15 15:37:39,374 ] fashion_recommender.components.recommender - WARNING - Style JSON not found: C:\Users\vansh\Projects\Fashion-Recommender\artifacts\styles\1855.json
+[ 2026-03-15 15:37:39,380 ] fashion_recommender.components.recommender - WARNING - Style JSON not found: C:\Users\vansh\Projects\Fashion-Recommender\artifacts\styles\21379.json
+[ 2026-03-15 15:37:39,380 ] fashion_recommender.components.recommender - INFO - Returning 6 recommendations
+[ 2026-03-15 15:37:39,381 ] fashion_recommender.pipeline.prediction_pipeline - INFO - Prediction pipeline complete — 6 results

@@ -1,0 +1,14 @@
+[ 2026-03-15 15:37:21,373 ] root - INFO - Logger initialized. Logging to C:\Users\vansh\Projects\Fashion-Recommender\logs\03_15_2026_15_37_21.log
+[ 2026-03-15 15:37:21,562 ] root - INFO - Logger initialized. Logging to C:\Users\vansh\Projects\Fashion-Recommender\logs\03_15_2026_15_37_21.log
+[ 2026-03-15 15:37:21,572 ] asyncio - DEBUG - Using selector: SelectSelector
+[ 2026-03-15 15:37:26,004 ] api.main - INFO - Fashion Recommender API starting up — loading models
+[ 2026-03-15 15:37:26,004 ] fashion_recommender.components.feature_extractor - INFO - Loading saved feature extractor from C:\Users\vansh\Projects\Fashion-Recommender\artifacts\features_extractor.pt
+[ 2026-03-15 15:37:26,995 ] fashion_recommender.components.feature_extractor - INFO - Feature extractor ready on cpu
+[ 2026-03-15 15:37:26,996 ] fashion_recommender.components.recommender - INFO - Loading KNN neighbors model and metadata
+[ 2026-03-15 15:37:27,129 ] fashion_recommender.components.recommender - INFO - Loaded 1000 filenames and CSV with 44446 rows
+[ 2026-03-15 15:37:27,129 ] api.main - INFO - Models loaded. API ready.
+[ 2026-03-15 15:37:33,541 ] watchfiles.main - DEBUG - 1 change detected: {(<Change.added: 1>, 'C:\\Users\\vansh\\Projects\\Fashion-Recommender\\artifacts\\uploads\\e754163f2c1b4afba70c54662cb19e46.jpg')}
+[ 2026-03-15 15:37:34,956 ] watchfiles.main - DEBUG - 1 change detected: {(<Change.modified: 2>, 'C:\\Users\\vansh\\Projects\\Fashion-Recommender\\artifacts\\uploads')}
+[ 2026-03-15 15:37:39,460 ] watchfiles.main - DEBUG - 1 change detected: {(<Change.deleted: 3>, 'C:\\Users\\vansh\\Projects\\Fashion-Recommender\\artifacts\\uploads\\e754163f2c1b4afba70c54662cb19e46.jpg')}
+[ 2026-03-15 15:37:40,873 ] watchfiles.main - DEBUG - 1 change detected: {(<Change.modified: 2>, 'C:\\Users\\vansh\\Projects\\Fashion-Recommender\\artifacts\\uploads')}
+[ 2026-03-15 15:37:51,298 ] api.main - INFO - Fashion Recommender API shutting down

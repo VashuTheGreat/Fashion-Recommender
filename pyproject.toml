@@ -1,0 +1,32 @@
+[project]
+name = "fashion-recommender"
+version = "0.1.0"
+description = "Fashion product recommendation using ResNet50 + KNN"
+requires-python = ">=3.10"
+dependencies = [
+    "fastapi",
+    "uvicorn[standard]",
+    "jinja2",
+    "python-multipart",
+    "torch",
+    "torchvision",
+    "numpy",
+    "pandas",
+    "scikit-learn",
+    "Pillow",
+    "tqdm",
+    "httpx",
+]
+
+[project.optional-dependencies]
+dev = ["pytest", "httpx"]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/fashion_recommender"]
+
+[dependency-groups]
+dev = ["pytest", "httpx"]

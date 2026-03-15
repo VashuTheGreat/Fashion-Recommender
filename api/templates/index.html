@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>🛍️ Image Prediction Viewer</title>
+  <style>
+    body {
+      font-family: "Poppins", sans-serif;
+      background: #f5f5f5;
+      margin: 0;
+      padding: 30px;
+    }
+
+    h1 {
+      text-align: center;
+      color: #333;
+      margin-bottom: 30px;
+    }
+
+    form {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    input[type="file"] {
+      padding: 10px;
+      margin-right: 10px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+
+    button {
+      padding: 10px 20px;
+      border: none;
+      background: #007bff;
+      color: white;
+      cursor: pointer;
+      border-radius: 6px;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background: #0056b3;
+    }
+
+    #selected_image {
+      display: block;
+      margin: 0 auto 40px;
+      max-width: 280px;
+      border-radius: 10px;
+      background: white;
+      padding: 10px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .image-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 25px;
+      justify-content: center;
+    }
+
+    .card {
+      background: white;
+      border-radius: 14px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      transition: all 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+    }
+
+    .card img {
+      width: 100%;
+      height: 240px;
+      object-fit: contain;
+      background-color: #fff;
+      padding: 10px;
+    }
+
+    .info {
+      padding: 10px 15px 15px;
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    .info h4 {
+      margin: 5px 0;
+      color: #111;
+      font-size: 16px;
+      font-weight: 600;
+    }
+
+    .info p {
+      margin: 3px 0;
+      font-size: 13px;
+      color: #555;
+    }
+
+    .price {
+      color: #007bff;
+      font-weight: bold;
+    }
+
+    .discount {
+      color: #28a745;
+      font-weight: bold;
+    }
+
+    .loading {
+      text-align: center;
+      font-size: 18px;
+      color: #666;
+    }
+  </style>
+</head>
+<body>
+  <h1>🛍️ Image Prediction Viewer</h1>
+
+  <form id="uploadForm">
+    <input type="file" name="file" id="fileInput" accept="image/*" required />
+    <button type="submit">Upload & Predict</button>
+  </form>
+
+  <img id="selected_image" src="" alt="Selected Image" />
+
+  <div id="imageGrid" class="image-container"></div>
+
+  <script>
+    const form = document.getElementById("uploadForm");
+    const imageGrid = document.getElementById("imageGrid");
+    const selectedImage = document.getElementById("selected_image");
+    const fileInput = document.getElementById("fileInput");
+
+    // ✅ Show image preview on select
+    fileInput.addEventListener("change", (e) => {
+      const file = e.target.files[0];
+      if (!file) return;
+
+      const imageURL = URL.createObjectURL(file);
+      selectedImage.src = imageURL;
+
+      // Free memory after load
+      selectedImage.onload = () => {
+        URL.revokeObjectURL(imageURL);
+      };
+    });
+
+    // ✅ Form submit
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+
+      const file = fileInput.files[0];
+      if (!file) return alert("Please select an image first.");
+
+      const formData = new FormData();
+      formData.append("file", file);
+
+      imageGrid.innerHTML = "<p class='loading'>⏳ Analyzing and fetching recommendations...</p>";
+
+      try {
+        const response = await fetch("/predict", {
+          method: "POST",
+          body: formData,
+        });
+
+        const data = await response.json();
+        console.log("Response:", data);
+
+        const results = data.result || [];
+        const jsonData = data.json_data || [];
+
+        imageGrid.innerHTML = "";
+
+        results.forEach((imgUrl, index) => {
+          const card = document.createElement("div");
+          card.className = "card";
+
+          const img = document.createElement("img");
+          img.src = imgUrl;
+          img.alt = "Recommended Product";
+          card.appendChild(img);
+
+          let infoHTML = "<p>No metadata found</p>";
+
+          if (jsonData[index]) {
+            try {
+              const parsed = JSON.parse(jsonData[index]);
+              const d = parsed.data || {};
+
+              const brand = d.brand || "Unknown Brand";
+              const desc = d.productName || "No Description";
+              const price = d.price ? `₹${d.price}` : "N/A";
+              const discount = d.discountedPrice ? `₹${d.discountedPrice}` : null;
+
+              infoHTML = `
+                <h4>${brand}</h4>
+                <p>${desc}</p>
+                <p class="price">Price: ${price}</p>
+                ${
+                  discount && discount !== price
+                    ? `<p class="discount">Discounted: ${discount}</p>`
+                    : ""
+                }
+              `;
+            } catch (err) {
+              infoHTML = "<p>Invalid product metadata</p>";
+            }
+          }
+
+          const infoDiv = document.createElement("div");
+          infoDiv.className = "info";
+          infoDiv.innerHTML = infoHTML;
+
+          card.appendChild(infoDiv);
+          imageGrid.appendChild(card);
+        });
+      } catch (err) {
+        console.error(err);
+        imageGrid.innerHTML =
+          "<p style='text-align:center;color:red;'>❌ Error fetching data from server.</p>";
+      }
+    });
+  </script>
+</body>
+</html>
